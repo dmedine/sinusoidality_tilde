@@ -1,0 +1,29 @@
+[sinusoidality~] is an extern for Pd by David Medine released under the GPL. It attempts to separate the 'sinusoidal' content from the 'noisy' content of a spectrum. It then resynthesizes these components. The assumption is that noise is the correct non-sinusoidal part of the signal, but you can resynthesize this part of the spectrum with any signal, not just noise, leading to potentialy interesting results.
+
+building:
+---------
+Linux:
+Rename the drop sinusoidality_tilde into Pd's extra folder. Then hit 
+
+> make
+
+on the command line. Alternatively, you can put the folder anywhere and then specify the include path (needed to find m_pd.h) by typing:
+
+> make LINUXINCLUDE=-I<full path to pd's src folder>
+
+where the full path is something like /home/dmedine/Software/pd-0.45-4/src 
+
+Mac:
+You will need to change the fourth line of the makefile from:
+
+current: pd_linux
+
+to:
+
+current: pd_darwin
+
+then, it's the same as for linux. The makefile uses the same variable LINUXINCLUDE for both linux and mac build options, so the same deal applies.
+
+installing:
+-----------
+You will also need to tell Pd where the extern is. If it is in the extra folder, you should be fine just by renaming the folder from 'sinusoidality_tilde' to 'sinusoidality~', otherwise you will need to add the path to Pd's path list, or declare the path using the [declare] object with the -path flag and the path to phasevoc~.pd_linux.
