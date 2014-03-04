@@ -9,7 +9,7 @@ Rename the drop sinusoidality_tilde into Pd's extra folder. Then hit
 
 on the command line. Alternatively, you can put the folder anywhere and then specify the include path (needed to find m_pd.h) by typing:
 
-> make PDPATH=<full path to pd's src folder>
+> make LINUXINCLUDE=-I<full path to pd's src folder>
 
 where the full path is something like /home/dmedine/Software/pd-0.45-4/src 
 
@@ -22,7 +22,7 @@ to:
 
 current: pd_darwin
 
-then, it's the same as for linux. The makefile uses the same variable PDPATH for both linux and mac build options, so the same deal applies.
+then, it's the same as for linux. The makefile uses the same variable LINUXINCLUDE for both linux and mac build options, so the same deal applies.
 
 installing:
 -----------
